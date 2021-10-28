@@ -4,8 +4,8 @@
 
 .item {
 	width: 200px;
-	height: 200px;
-	background-color: #eee;
+	height: 100px;
+	background-color: rgb(221, 221, 221);
 	box-sizing: border-box;
 	margin: 20px;
 	padding: 5px;
