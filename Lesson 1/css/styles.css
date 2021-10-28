@@ -1,10 +1,26 @@
 .items {
 	display: flex;
+	flex-wrap: wrap;
 }
 
-h1,h2 {
+h1,h2,.calc p {
 	margin-left: 20px;
 }
+
+article {
+	margin-bottom: 50px;
+}
+
+.calc span {
+	display: inline-block;
+	width: 70px;
+	text-align: center;
+}
+
+.calc .res {
+	text-align: left;
+}
+
 
 .item {
 	width: 200px;
