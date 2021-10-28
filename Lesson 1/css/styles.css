@@ -2,6 +2,10 @@
 	display: flex;
 }
 
+h1,h2 {
+	margin-left: 20px;
+}
+
 .item {
 	width: 200px;
 	height: 100px;
