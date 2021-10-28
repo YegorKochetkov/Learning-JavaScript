@@ -52,14 +52,10 @@ window.onload = function(e) {
 		this.disabled = true;
 	}
 
-	num1.oninput = function() {
-		addBtn.disabled = false;
-		subtractBtn.disabled = false;
-		multiplyBtn.disabled = false;
-		divideBtn.disabled = false;
-	}
+	num1.oninput = btnEnabled;
+	num2.oninput = btnEnabled;
 
-	num2.oninput = function() {
+	function btnEnabled() {
 		addBtn.disabled = false;
 		subtractBtn.disabled = false;
 		multiplyBtn.disabled = false;
