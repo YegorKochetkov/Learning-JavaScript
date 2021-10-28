@@ -1,0 +1,42 @@
+.items {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+h1,h2,.calc p {
+	margin-left: 20px;
+}
+
+article {
+	margin-bottom: 50px;
+}
+
+.calc span,
+.calc input[type=button] {
+	display: inline-block;
+	width: 30px;
+	text-align: center;
+}
+
+.calc .res {
+	text-align: left;
+}
+
+.item {
+	width: 200px;
+	height: 100px;
+	background-color: rgb(221, 221, 221);
+	box-sizing: border-box;
+	margin: 20px;
+	padding: 5px;
+	text-align: center;
+}
+
+.item-active {
+	outline: 1px solid red;
+}
+
+.total-sum {
+	margin-left: 20px;
+	font-weight: bold;
+}
