@@ -2,14 +2,17 @@ window.onload = function(e) {
 	var products = document.querySelectorAll('.items .item');
 	var totalSum = document.querySelector('.total-sum');
 
-	var addBtn = document.querySelector('input[name=add]');
-	var subtractBtn = document.querySelector('input[name=subtract]');
-	var multiplyBtn = document.querySelector('input[name=multiply]');
-	var divideBtn = document.querySelector('input[name=divide]');
+	// var addBtn = document.querySelector('input[name=add]');
+	// var subtractBtn = document.querySelector('input[name=subtract]');
+	// var multiplyBtn = document.querySelector('input[name=multiply]');
+	// var divideBtn = document.querySelector('input[name=divide]');
+
+	var buttons = document.querySelectorAll('.calc input[type=button]');
 	var num1 = document.querySelector('input[name=num1]');
 	var num2 = document.querySelector('input[name=num2]');
 	var result = document.querySelector('.res');
-	
+
+// shop logic
 	for(var i = 0; i < products.length; i++) {
 		products[i].onclick = function() {
 			this.classList.toggle('item-active');
@@ -28,37 +31,68 @@ window.onload = function(e) {
 		totalSum.innerHTML = 'Cart: ' + price;
 	}
 
-	addBtn.onclick = function() {
-		var res = parseInt(num1.value) + parseInt(num2.value);
-		result.innerHTML = res;
-		this.disabled = true;
+// calc logic
+	for(i = 0; i < buttons.length; i++) {
+		buttons[i].onclick = function() {
+			var operator = this.getAttribute('name');
+			calcFunc(operator);
+			this.disabled = true;
+		}
 	}
 
-	subtractBtn.onclick = function() {
-		var res = parseInt(num1.value) - parseInt(num2.value);
+	function calcFunc(operator) {
+		var a = parseInt(num1.value);
+		var b = parseInt(num2.value);
+		var res;
+
+		switch (operator) {
+			case 'add':
+				res = a + b;
+				break;
+			case 'subtract':
+				res = a - b;
+				break;
+			case 'multiply':
+				res = a * b;
+				break;
+			case 'divide':
+				res = a / b;
+				break;
+			}
 		result.innerHTML = res;
-		this.disabled = true;
 	}
 
-	multiplyBtn.onclick = function() {
-		var res = parseInt(num1.value) * parseInt(num2.value);
-		result.innerHTML = res;
-		this.disabled = true;
-	}
+	// addBtn.onclick = function() {
+	// 	var res = parseInt(num1.value) + parseInt(num2.value);
+	// 	result.innerHTML = res;
+	// 	this.disabled = true;
+	// }
+
+	// subtractBtn.onclick = function() {
+	// 	var res = parseInt(num1.value) - parseInt(num2.value);
+	// 	result.innerHTML = res;
+	// 	this.disabled = true;
+	// }
+
+	// multiplyBtn.onclick = function() {
+	// 	var res = parseInt(num1.value) * parseInt(num2.value);
+	// 	result.innerHTML = res;
+	// 	this.disabled = true;
+	// }
 	
-	divideBtn.onclick = function() {
-		var res = parseInt(num1.value) / parseInt(num2.value);
-		result.innerHTML = res;
-		this.disabled = true;
-	}
+	// divideBtn.onclick = function() {
+	// 	var res = parseInt(num1.value) / parseInt(num2.value);
+	// 	result.innerHTML = res;
+	// 	this.disabled = true;
+	// }
 
 	num1.oninput = btnEnabled;
 	num2.oninput = btnEnabled;
+	
 
 	function btnEnabled() {
-		addBtn.disabled = false;
-		subtractBtn.disabled = false;
-		multiplyBtn.disabled = false;
-		divideBtn.disabled = false;
+		for(i = 0; i < buttons.length; i++) {
+			buttons[i].disabled = false;
+			}
+		}
 	}
-}

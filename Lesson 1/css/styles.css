@@ -12,7 +12,7 @@ article {
 }
 
 .calc span,
-.input-button {
+.calc input[type=button] {
 	display: inline-block;
 	width: 30px;
 	text-align: center;
