@@ -1,8 +1,10 @@
 window.onload = function(e) {
+// vars for shop logic
 	var products = document.querySelectorAll('.items .item');
 	var totalSum = document.querySelector('.total-sum');
 
-	var buttons = document.querySelectorAll('.calc input[type=button]');
+	// vars for calc logic
+var buttons = document.querySelectorAll('.calc input[type=button]');
 	var num1 = document.querySelector('input[name=num1]');
 	var num2 = document.querySelector('input[name=num2]');
 	var result = document.querySelector('.res');
