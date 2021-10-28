@@ -31,35 +31,35 @@ window.onload = function(e) {
 	addBtn.onclick = function() {
 		var res = parseInt(num1.value) + parseInt(num2.value);
 		result.innerHTML = res;
-		addBtn.disabled = true;
+		this.disabled = true;
 	}
 
 	subtractBtn.onclick = function() {
 		var res = parseInt(num1.value) - parseInt(num2.value);
 		result.innerHTML = res;
-		subtractBtn.disabled = true;
+		this.disabled = true;
 	}
 
 	multiplyBtn.onclick = function() {
 		var res = parseInt(num1.value) * parseInt(num2.value);
 		result.innerHTML = res;
-		multiplyBtn.disabled = true;
+		this.disabled = true;
 	}
 	
 	divideBtn.onclick = function() {
 		var res = parseInt(num1.value) / parseInt(num2.value);
 		result.innerHTML = res;
-		divideBtn.disabled = true;
+		this.disabled = true;
 	}
 
-	num1.onclick = function() {
+	num1.oninput = function() {
 		addBtn.disabled = false;
 		subtractBtn.disabled = false;
 		multiplyBtn.disabled = false;
 		divideBtn.disabled = false;
 	}
 
-	num2.onclick = function() {
+	num2.oninput = function() {
 		addBtn.disabled = false;
 		subtractBtn.disabled = false;
 		multiplyBtn.disabled = false;
