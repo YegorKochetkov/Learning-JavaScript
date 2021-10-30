@@ -1,0 +1,11 @@
+body {
+	margin-left: 20px;
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-size: 15px;
+  line-height: 2;
+  letter-spacing: 0.01em;
+  font-weight: 300;
+
+  color: #464646;
+  background-color: #ffffff;
+}
