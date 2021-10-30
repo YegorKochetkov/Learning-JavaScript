@@ -1,0 +1,45 @@
+html, body, ul, li {
+	margin: 0 20px;
+	padding: 0;
+	padding-bottom: 20px;
+}
+
+.gallery div, .gallery {
+	display: inline-block;
+}
+
+.gallery {
+	width: 400px;
+	margin: 0 20px 20px 0;
+	text-align: center;
+	position: relative;
+}
+
+.gallery-2 {
+	padding-bottom: 20px;
+}
+
+.gallery .photos {
+	height: 330px;
+}
+
+.gallery .photos img {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	padding-top: 10px;
+	opacity: 0;
+	transition: opacity 1s;
+}
+
+.gallery .photos img.showed {
+	opacity: 1;
+}
+
+.err {
+	outline: 1px solid red;
+}
+
+h3 {
+	margin: 0;
+}
