@@ -6,10 +6,12 @@ html, body {
 
 .modal {
 	position: fixed;
+	top: 0;
+	left: 0;
 	display: none;
-	width: 60vw;
+	width: 50vw;
 	height: 60vh;
-	margin: 10vh 20vw;
+	margin: 10% 25%;
 	background-color: white;
 	z-index: 1110;
 	box-sizing: border-box;
