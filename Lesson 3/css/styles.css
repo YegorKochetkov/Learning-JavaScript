@@ -1,0 +1,67 @@
+html, body {
+	margin: 0 20px;
+	padding: 0;
+	padding-bottom: 20px;
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 50vw;
+	height: 60vh;
+	margin: 10% 25%;
+	background-color: white;
+	z-index: 1110;
+	box-sizing: border-box;
+	padding: 20px;
+}
+
+.overlay {
+	position: fixed;
+	display: none;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1100;
+	cursor: pointer;
+}
+
+.open {
+	display: block;
+}
+
+.for-write-popup {
+	display: none;
+}
+
+article {
+	margin-bottom: 50px;
+}
+
+.items {
+	display: flex;
+}
+
+.items .item {
+	height: 50px;
+	width: 150px;
+	background-color: yellowgreen;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+form {
+	margin-bottom: 20px;
+}
+
+.err{
+	outline: 1px solid red;
+}
+
+.focus{
+	box-shadow: 0 0 15px #ff0;
+}
