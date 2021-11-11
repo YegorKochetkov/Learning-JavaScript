@@ -64,3 +64,35 @@ form {
 .focus{
 	box-shadow: 0 0 15px #ff0;
 }
+
+.gallery div, .gallery {
+	display: inline-block;
+}
+
+.gallery {
+	width: 400px;
+	margin: 0 20px 20px 0;
+	text-align: center;
+	position: relative;
+}
+
+.gallery-2 {
+	padding-bottom: 20px;
+}
+
+.gallery .photos {
+	height: 330px;
+}
+
+.gallery .photos img {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	padding-top: 10px;
+	opacity: 0;
+	transition: opacity 1s;
+}
+
+.gallery .photos img.showed {
+	opacity: 1;
+}
