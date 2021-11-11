@@ -47,8 +47,7 @@ article {
 }
 
 .items .item {
-	height: 50px;
-	width: 150px;
+	padding: 20px 50px;
 	background-color: yellowgreen;
 	margin: 0 5px;
 	cursor: pointer;
