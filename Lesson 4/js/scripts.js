@@ -1,40 +1,4 @@
-function Popup(options) {
-	this.modal = document.querySelector(options.modal);
-	this.overlay = document.querySelector(options.overlay);
-
-	const popup = this;
-
-	this.open = function(content) {
-		popup.modal.innerHTML = content;
-		popup.modal.classList.add('open');
-		popup.overlay.classList.add('open');
-	}
-	
-	this.close = function() {
-		popup.modal.classList.remove('open');
-		popup.overlay.classList.remove('open');
-	}
-
-	this.overlay.onclick = popup.close;
-}
-
-window.onload = function(e) {
-//modal window logic
-	var p = new Popup({
-		modal: '.modal',
-		overlay: '.overlay'
-	});
-	
-	document.querySelector('.callme').onclick = function() {
-		p.open('form of callback');
-	};
-	
-	document.querySelector('.write').onclick = function() {
-		var form = document.querySelector('.for-write-popup');
-		p.open(form.innerHTML);
-	};
-
-//callback and own library lesson	
+$(function() {
     var inputs = document.querySelectorAll('.form2 .check');
     
     document.querySelector('.form2').onsubmit = function(e){
@@ -55,21 +19,20 @@ window.onload = function(e) {
 	let jqInputs = $('.check');
 
 	jqInputs.on('click', function() {
-		this.classList.remove('err');
+		$(this).removeClass('err');
 	});
 
 	jqInputs.on('focus', function() {
-		this.classList.add('focus');
+		$(this).addClass('focus');
 	});
 
 	jqInputs.on('blur', function() {
-		this.classList.remove('focus');
+		$(this).removeClass('focus');
 	});
 
 	$('.items .item').on('click', function() {
-		$(this).fade(1000, function() {
-			this.style.opacity = 1;
-			this.style.display = 'block';
+		$(this).fadeOut(1000, function() {
+			$(this).fadeIn(100);
 		});
 	});
-}
+});
