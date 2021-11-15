@@ -96,3 +96,19 @@ form {
 .gallery .photos img.showed {
 	opacity: 1;
 }
+
+.faq .item {
+	max-width: 600px;
+}
+
+.faq .item .question {
+	cursor: pointer;
+	font-size: larger;
+}
+
+.faq .item .answer {
+	background-color: gainsboro;
+	padding: 10px;
+	/* overflow: hidden; */
+	display: none;
+}

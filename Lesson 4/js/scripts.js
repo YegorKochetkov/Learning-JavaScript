@@ -1,4 +1,5 @@
 $(function() {
+	//Task from lesson 3 with jQuery library
     var inputs = document.querySelectorAll('.form2 .check');
     
     document.querySelector('.form2').onsubmit = function(e){
@@ -35,4 +36,16 @@ $(function() {
 			$(this).fadeIn(100);
 		});
 	});
+
+	//FAQ
+	$('.faq .question').on('click', function() {
+		let question = $(this);
+		let answer = $(this).next();
+		
+		question.css('cursor','default');
+		$('.faq .question').not(question).css('cursor','pointer');
+		$('.faq .answer:visible').not(answer).slideUp(400);
+		// answer.slideToggle(400);
+		answer.slideDown(400);
+	})
 });
