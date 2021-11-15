@@ -64,3 +64,46 @@ form {
 .focus{
 	box-shadow: 0 0 15px #ff0;
 }
+
+.gallery div, .gallery {
+	display: inline-block;
+}
+
+.gallery {
+	width: 400px;
+	margin: 0 20px 20px 0;
+	text-align: center;
+	position: relative;
+}
+
+.gallery .photos {
+	height: 330px;
+}
+
+.gallery .photos img {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	padding-top: 10px;
+	display: none;
+}
+
+.gallery .photos img.showed {
+	display: block;
+}
+
+.faq .item {
+	max-width: 600px;
+}
+
+.faq .item .question {
+	cursor: pointer;
+	font-size: larger;
+}
+
+.faq .item .answer {
+	background-color: gainsboro;
+	padding: 10px;
+	/* overflow: hidden; */
+	display: none;
+}
