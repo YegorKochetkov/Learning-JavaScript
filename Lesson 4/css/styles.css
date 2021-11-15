@@ -76,10 +76,6 @@ form {
 	position: relative;
 }
 
-.gallery-2 {
-	padding-bottom: 20px;
-}
-
 .gallery .photos {
 	height: 330px;
 }
@@ -89,12 +85,11 @@ form {
 	position: absolute;
 	left: 0;
 	padding-top: 10px;
-	opacity: 0;
-	transition: opacity 1s;
+	display: none;
 }
 
 .gallery .photos img.showed {
-	opacity: 1;
+	display: block;
 }
 
 .faq .item {
