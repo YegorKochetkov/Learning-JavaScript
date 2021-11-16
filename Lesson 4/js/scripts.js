@@ -72,7 +72,7 @@ $(function() {
 			});
 	
 			function slideImage(direction) {
-				images.eq(i).fadeOut(500);
+				images.eq(i).fadeToggle(500);
 				i += direction;
 
 				if(i >= images.length){
@@ -83,7 +83,18 @@ $(function() {
 					i = images.length - 1;
 				}
 
-				images.eq(i).fadeIn(500);
+				images.eq(i).fadeToggle(500);
 			}
 		}	
+	// Animation with jQuery's plugin
+	$('.animation .item').on('click', function() {
+		$(this).stop(true,true).fadeOut(300).fadeIn(300).fadeOut(300).fadeIn(300);
+	});
+	$('.animation .item').one('contextmenu', function(e) {
+		e.preventDefault();
+		$(this).animate({
+			opacity: 0.5,
+			height: '-=50px'
+		},1000,$.bez([0,1.86,1,-0.67]));
+	});
 });

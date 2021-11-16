@@ -107,3 +107,11 @@ form {
 	/* overflow: hidden; */
 	display: none;
 }
+
+.animation .item {
+	height: 150px;
+	width: 600px;
+	margin: 30px 0;
+	background-color: rgb(100, 192, 8);
+	cursor: pointer;
+}
