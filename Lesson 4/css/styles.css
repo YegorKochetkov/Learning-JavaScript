@@ -4,40 +4,6 @@ html, body {
 	padding-bottom: 20px;
 }
 
-.modal {
-	position: fixed;
-	top: 0;
-	left: 0;
-	display: none;
-	width: 50vw;
-	height: 60vh;
-	margin: 10% 25%;
-	background-color: white;
-	z-index: 1110;
-	box-sizing: border-box;
-	padding: 20px;
-}
-
-.overlay {
-	position: fixed;
-	display: none;
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	background: rgba(0, 0, 0, 0.5);
-	z-index: 1100;
-	cursor: pointer;
-}
-
-.open {
-	display: block;
-}
-
-.for-write-popup {
-	display: none;
-}
-
 article {
 	margin-bottom: 50px;
 }
@@ -107,3 +73,18 @@ form {
 	/* overflow: hidden; */
 	display: none;
 }
+
+.animation .item {
+	height: 150px;
+	width: 600px;
+	margin: 30px 0;
+	background-color: rgb(100, 192, 8);
+	cursor: pointer;
+}
+
+nav a {
+	display: inline-block;
+	margin-right: 20px;
+	padding: 5px 0;
+}
+
