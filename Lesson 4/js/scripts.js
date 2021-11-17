@@ -86,10 +86,12 @@ $(function() {
 				images.eq(i).fadeToggle(500);
 			}
 		}	
+
 	//Animation with jQuery's plugin
 	$('.animation .item').on('click', function() {
 		$(this).stop(true,true).fadeOut(300).fadeIn(300).fadeOut(300).fadeIn(300);
 	});
+	
 	$('.animation .item').one('contextmenu', function(e) {
 		e.preventDefault();
 		$(this).animate({
@@ -103,11 +105,33 @@ $(function() {
 		e.preventDefault();
 
 		let anchor = $(this).attr('href');
+		// console.log(anchor);
 		let task = $(anchor);
-		let nav = $('nav');
+		// console.log(task);
 
 		$('html, body').animate({
 			scrollTop: task.offset().top - 5
 		}, 700);
-	})
+	});
+
+	let upBtn = $('.upBtn');
+
+	function scrollBtn() {
+		let top = $(this).scrollTop();
+		if(top > 50) {
+			upBtn.fadeIn(400);
+		} else {
+			upBtn.fadeOut(400);
+		}
+	}
+
+	scrollBtn();
+
+	$(document).on('scroll', scrollBtn);
+	
+	upBtn.on('click', function() {
+		$('html, body').animate({
+			scrollTop: 0
+		}, 400);
+	});
 });
