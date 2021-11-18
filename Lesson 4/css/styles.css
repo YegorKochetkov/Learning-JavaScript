@@ -31,31 +31,29 @@ form {
 	box-shadow: 0 0 15px #ff0;
 }
 
-.gallery div, .gallery {
-	display: inline-block;
-}
-
 .gallery {
-	width: 400px;
-	margin: 0 20px 20px 0;
+	display: inline-block;
 	text-align: center;
-	position: relative;
 }
 
 .gallery .photos {
-	height: 330px;
+	position: relative;
+	width: 400px;
+	height: 300px;
+	margin-bottom: 10px;
+	overflow: hidden;
 }
 
 .gallery .photos img {
-	width: 100%;
 	position: absolute;
-	left: 0;
-	padding-top: 10px;
-	display: none;
+	left: 400px;
+	width: 100%;
+
 }
 
 .gallery .photos img.showed {
 	display: block;
+	left: 0;
 }
 
 .faq .item {
@@ -76,7 +74,7 @@ form {
 
 .animation .item {
 	height: 150px;
-	width: 600px;
+	max-width: 600px;
 	margin: 30px 0;
 	background-color: rgb(100, 192, 8);
 	cursor: pointer;
@@ -91,8 +89,8 @@ nav a {
 .upBtn {
 	display: none;
 	position: fixed;
-	top: 90%;
-	left: 90%;
+	bottom: 5%;
+	right: 5%;
 	height: 30px;
 }
 

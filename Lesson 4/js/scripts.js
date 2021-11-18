@@ -52,38 +52,48 @@ $(function() {
 	//Slider from lesson 2 with jQuery
 		var slider = new Slider({
 			images: '.gallery-1 .photos img',
-			btnPrev: '.gallery-1 .buttons .prev',
-			btnNext: '.gallery-1 .buttons .next',
+			btnPrev: '.gallery-1 .prev',
+			btnNext: '.gallery-1 .next',
 			auto: false,
 		});
-			
+		
 		function Slider(slider){
 			let images = $(slider.images);
 			let btnPrev = $(slider.btnPrev);
 			let btnNext = $(slider.btnNext);
 			let i = 0;
-
+			let isSlideRun = false;
+			
 			btnNext.on('click', function() {
+				if(isSlideRun) {
+					return;
+				}
+				isSlideRun = true;
 				slideImage(1);
 			});
 	
 			btnPrev.on('click', function() {
+				if(isSlideRun) {
+					return;
+				}
+				isSlideRun = true;
 				slideImage(-1);
 			});
 	
-			function slideImage(direction) {
-				images.eq(i).fadeToggle(500);
+			function slideImage(direction) {//400px - width photos
+				images.eq(i).css({left: 0}).animate({left: (400 * (-direction)) + 'px'}, 350);
+				
 				i += direction;
-
-				if(i >= images.length){
+	
+				if(i >= images.length) {
 					i = 0;
-				}
-
-				if(i < 0){
+				} else if(i < 0) {
 					i = images.length - 1;
 				}
-
-				images.eq(i).fadeToggle(500);
+				
+				images.eq(i).css({left: (400 * direction) + 'px'}).animate({left: 0}, 350, function() {
+					isSlideRun = false;
+				});
 			}
 		}	
 
@@ -128,7 +138,7 @@ $(function() {
 	scrollBtn();
 
 	$(document).on('scroll', scrollBtn);
-	
+
 	upBtn.on('click', function() {
 		$('html, body').animate({
 			scrollTop: 0
