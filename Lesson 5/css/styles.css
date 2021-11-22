@@ -7,12 +7,13 @@ article:not(:last-child) {
 	margin-bottom: 50px;
 }
 
-.carousel .item {
-	width: 300px;
-	padding: 20px 50px;
-	background-color: yellowgreen;
-	margin: 0 5px;
-	cursor: pointer;
+.form2 {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: 10px;
+}
+
+.form2 > * {
 }
 
 form {
@@ -22,4 +23,17 @@ form {
 form input[type=button] {
 	margin-top: 15px;
 }
+
+.carousel .item {
+	background-color: yellowgreen;
+}
+
+.carousel .item p {
+	padding: 0 10px 10px;
+}
+
+.question {
+	font-weight: bold;
+}
+
 
