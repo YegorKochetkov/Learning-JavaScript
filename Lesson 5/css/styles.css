@@ -13,9 +13,6 @@ article:not(:last-child) {
 	margin-right: 10px;
 }
 
-.form2 > * {
-}
-
 form {
 	margin-bottom: 20px;
 }
