@@ -5,11 +5,11 @@
 			cnt: 3
 		};
 
+		let options = $.extend(defaults, settings);
+
 		let inputs = $('.double');
 		let buttonDisabled = document.querySelector('.addButton');
 		
-		let options = $.extend(defaults, settings);
-		console.log(inputs.length);
 		if(inputs.length <= 6) {
 			this.each(function() {
 				let elem = $(this);
@@ -26,6 +26,7 @@
 				elem.html(out);
 			});
 		}
+
 		if(inputs.length > 3) {
 			buttonDisabled.disabled = true;
 			buttonDisabled.value = "Is enough!";
