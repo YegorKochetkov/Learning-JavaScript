@@ -4,7 +4,6 @@ $(function() {
 		$('.form2').duplicate({delimiter: ' + ', cnt: 2});
 	});
 
-
 	//Owl Carousel
 	let $items = $('.carousel .item');
 
