@@ -60,7 +60,8 @@ class userInfo {
         // charging
         // chargingTime
         // level
-        return await navigator.getBattery();
+		let batt = await navigator.getBattery();
+        return batt;
       
     }
 
