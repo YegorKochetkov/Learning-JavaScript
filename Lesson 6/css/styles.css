@@ -7,35 +7,3 @@ article:not(:last-child) {
 	margin-bottom: 50px;
 }
 
-.form2 {
-	display: flex;
-	flex-wrap: wrap;
-	margin-right: 10px;
-}
-
-form {
-	margin-bottom: 20px;
-}
-
-form input[type=button] {
-	margin-top: 15px;
-}
-
-.carousel .item {
-	background-color: yellowgreen;
-}
-
-.carousel .item p {
-	padding: 0 10px 10px;
-}
-
-.question {
-	font-weight: bold;
-}
-
-.back {
-	display: block;
-	padding-top: 15px;
-}
-
-

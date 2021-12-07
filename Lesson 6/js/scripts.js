@@ -1,49 +1,52 @@
-$(function() {
-	//Own plugin for jQuery that duplicates fields
-	$('.duplicate input').on('click', function() {
-		$('.form2').duplicate({delimiter: ' + ', cnt: 2});
-	});
+const info = new userInfo();
 
-	//Owl Carousel
-	let $items = $('.carousel .item');
+async function getInfo() {
+	let x = info.timeOpened;
+	let y = info.timezone;
+	document.body.insertAdjacentHTML('beforeEnd', `<p>Time opened: ${x}</p>`);
+	document.body.insertAdjacentHTML('beforeEnd', `<p>Time zone: ${y}</p>`);
 
-	$('.owl-carousel').owlCarousel({
-		loop:false,
-		margin:10,
-		responsiveClass:true,
-		responsive:{
-			0:{
-				items:1,
-				nav:true
-			},
-			600:{
-				items:3,
-				nav:true
-			},
-			1000:{
-				items:5,
-				nav:true
-			}
-		},
-		onInitialized: function(){
-			autoHeight($items);
-		},
-		onResized: function(){
-			autoHeight($items);
-		},
-		navText:["&nbsp;prev&nbsp;","&nbsp;next&nbsp;"]
-	});
+	x = info.pageon();
+	document.body.insertAdjacentHTML('beforeEnd', `<p>File location: ${x}</p>`);
 
-	function autoHeight($items) {
-		let max = 0;
+	x = info.referrer();
+	document.body.insertAdjacentHTML('beforeEnd', `<p>The URI of the page that linked to this page: ${x}</p>`);
 
-		$items.each(function() {
-			let h = $(this).find('> div').height();
+	x = info.browserInfo();
+	document.body.insertAdjacentHTML('beforeEnd', `<p>Some info from the browser:</p>`);
+	document.body.insertAdjacentHTML('beforeEnd', ` <ul>
+														<li>cookieEnabled: ${x.cookieEnabled}
+														<li>language: ${x.language}
+														<li>languages: ${x.languages}
+														<li>deviceMemory: ${x.deviceMemory}
+														<li>hardwareConcurrency: ${x.hardwareConcurrency}
+														<li>userAgent: ${x.userAgent}
+													</ul<`);
+	
+	x = info.dataCookies();
+	document.body.insertAdjacentHTML('beforeEnd', `<p>Cookies: ${x}</p>`);
 
-			if(h > max) {
-				max = h;
-			}
-		});
-		$items.css('min-height', max + 'px');
-	}
-});
+	x = info.dataStorage();
+	document.body.insertAdjacentHTML('beforeEnd', `<p>Local storage items: ${x.length}</p>`);
+
+	x = info.sizeScreen();
+	document.body.insertAdjacentHTML('beforeEnd', `<p>Screen width: ${x.width}</p>`);
+	document.body.insertAdjacentHTML('beforeEnd', `<p>Screen height: ${x.height}</p>`);
+
+	x = await info.position();
+	document.body.insertAdjacentHTML('beforeEnd', `<p>Longitude: ${x.long}</p>`);
+	document.body.insertAdjacentHTML('beforeEnd', `<p>Latitude: ${x.lat}</p>`);
+	document.body.insertAdjacentHTML('beforeEnd', `<p>Accuracy: ${x.accuracy}</p>`);
+	document.body.insertAdjacentHTML('beforeEnd', `<p>Speed: ${x.speed}</p>`);
+
+	x = await info.battery();
+	document.body.insertAdjacentHTML('beforeEnd', `<p><b>Battery:</b></p>`);
+	document.body.insertAdjacentHTML('beforeEnd', `<p>charging - ${x.charging}</p>`);
+	document.body.insertAdjacentHTML('beforeEnd', `<p>charging time - ${x.chargingTime}</p>`);
+	document.body.insertAdjacentHTML('beforeEnd', `<p>level - ${x.level}</p>`);
+
+	x = await info.ip();
+	document.body.insertAdjacentHTML('beforeEnd', `<p>IP address: ${x.ipAddress} (city: ${x.city}, continent: ${x.continentName}, country code: ${x.countryCode}, country: ${x.countryName})</p>`);
+}
+
+getInfo();
