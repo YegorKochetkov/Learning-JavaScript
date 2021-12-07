@@ -60,12 +60,7 @@ class userInfo {
         // charging
         // chargingTime
         // level
-		const bat = await navigator.getBattery();
-        return {
-			charging: bat.charging,
-			chargingTime: bat.chargingTime,
-			level: bat.level
-		}
+        return await navigator.getBattery();
     }
 
     async ip(){
@@ -74,7 +69,6 @@ class userInfo {
 		//  countryCode
 		//  countryName
 		//  ipAddress
-		//  statProv
         let res =  await fetch('https://api.db-ip.com/v2/free/self');
         let data = await res.json();
         return data;
