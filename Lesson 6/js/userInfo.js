@@ -60,9 +60,12 @@ class userInfo {
         // charging
         // chargingTime
         // level
-		let batt = await navigator.getBattery();
-        return batt;
-      
+        const bat = await navigator.getBattery();
+		return {
+			charging: bat.charging,
+			chargingTime: bat.chargingTime,
+			level: bat.level,
+		};
     }
 
     async ip(){
