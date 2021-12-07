@@ -1,0 +1,9 @@
+html, body {
+	margin: 0 20px;
+	padding: 0;
+}
+
+article:not(:last-child) {
+	margin-bottom: 50px;
+}
+
