@@ -39,14 +39,14 @@ async function getInfo() {
 	document.body.insertAdjacentHTML('beforeEnd', `<p>Accuracy: ${x.accuracy}</p>`);
 	document.body.insertAdjacentHTML('beforeEnd', `<p>Speed: ${x.speed}</p>`);
 
+	x = await info.ip();
+	document.body.insertAdjacentHTML('beforeEnd', `<p>IP address: ${x.ipAddress} (city: ${x.city}, continent: ${x.continentName}, country code: ${x.countryCode}, country: ${x.countryName})</p>`);
+
 	x = await info.battery();
 	document.body.insertAdjacentHTML('beforeEnd', `<p><b>Battery:</b></p>`);
 	document.body.insertAdjacentHTML('beforeEnd', `<p>charging - ${x.charging}</p>`);
 	document.body.insertAdjacentHTML('beforeEnd', `<p>charging time - ${x.chargingTime}</p>`);
 	document.body.insertAdjacentHTML('beforeEnd', `<p>level - ${x.level}</p>`);
-
-	x = await info.ip();
-	document.body.insertAdjacentHTML('beforeEnd', `<p>IP address: ${x.ipAddress} (city: ${x.city}, continent: ${x.continentName}, country code: ${x.countryCode}, country: ${x.countryName})</p>`);
 }
 
 getInfo();
