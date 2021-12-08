@@ -60,21 +60,30 @@ class userInfo {
         // charging
         // chargingTime
         // level
-        return await navigator.getBattery()
-            .then(function(batteryManager) {
-                // Get current charge in percentages.
-                var levelBattery = batteryManager.level * 100;
-                var chargingBattery = batteryManager.charging;
-                var chargingTimeBattery = batteryManager.chargingTime;
-                return {
-                    level: levelBattery,
-                    charging: chargingBattery,
-                    chargingTime: chargingTimeBattery
-                }
-            })
-            .catch(function(e) {
-                console.error(e);
-            });
+        if(navigator.getBattery){
+            return await navigator.getBattery()
+                .then(function(batteryManager) {
+                    // Get current charge in percentages.
+                    var levelBattery = batteryManager.level * 100;
+                    var chargingBattery = batteryManager.charging;
+                    var chargingTimeBattery = batteryManager.chargingTime;
+                    return {
+                        level: levelBattery,
+                        charging: chargingBattery,
+                        chargingTime: chargingTimeBattery
+                    }
+                })
+                .catch(function(e) {
+                    console.error(e);
+                });
+        }
+        else {
+            return {
+                level: 'not support',
+                charging: 'not support',
+                chargingTime: 'not support'
+            }
+        }
     }
 
     async ip(){
