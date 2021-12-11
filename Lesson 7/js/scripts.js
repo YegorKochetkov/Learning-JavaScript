@@ -1,6 +1,6 @@
 window.onload = function(e) {
 	let div = document.querySelector('.fields');
-	let matrix = new Matrix(div, 15, 10);
+	let matrix = new Matrix(div);
 	let snake = new Snake(matrix);
 	// console.log(matrix)
 	matrix.create();
