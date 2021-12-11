@@ -1,15 +1,19 @@
 class Matrix {
-	constructor(elem) {
+	constructor(elem, rows = 20, cols = 20) {
 		this.elem = elem;
+		this.rows = rows;
+		this.cols = cols;
 		this.cells = [];
 	}
 
 	create() {
-		for (let i = 0; i < 400; i++) {
+		for (let i = 0; i < (this.rows * this.cols); i++) {
 			let div = document.createElement('div');
 			this.elem.appendChild(div);
 			this.cells[i] = '';
 		}
+
+		this.elem.style.width = this.cols * 20 + 'px';
 	}
 
 	getCell(x, y) {
@@ -24,6 +28,6 @@ class Matrix {
 	}
 
 	_calcNum(x, y) {
-		return (y * 20 - (20 - x) - 1);
+		return ((y -1) * this.cols + x - 1);
 	}
 }
