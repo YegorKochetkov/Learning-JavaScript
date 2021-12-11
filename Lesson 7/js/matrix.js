@@ -12,7 +12,8 @@ class Matrix {
 			this.elem.appendChild(div);
 			this.cells[i] = '';
 		}
-
+		//make sure that the field is proportional to 20px in css
+		//need to get rid of css
 		this.elem.style.width = this.cols * 20 + 'px';
 	}
 
@@ -27,6 +28,7 @@ class Matrix {
 		this.elem.children[num].className = val;
 	}
 
+	//calculate .cells number by coordinates
 	_calcNum(x, y) {
 		return ((y -1) * this.cols + x - 1);
 	}

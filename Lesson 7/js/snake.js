@@ -27,6 +27,8 @@ class Snake {
 				this.y++;
 				break;
 		}
+
+		//handle a collision of a snake with a wall
 		if(this.x > this.matrix.cols) this.x = 1;
 		if(this.x < 1) this.x = this.matrix.cols;
 		if(this.y > this.matrix.rows) this.y = 1;

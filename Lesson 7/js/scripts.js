@@ -2,11 +2,11 @@ window.onload = function(e) {
 	let div = document.querySelector('.fields');
 	let matrix = new Matrix(div);
 	let snake = new Snake(matrix);
-	// console.log(matrix)
+	
 	matrix.create();
+	//necessary add random place and new appear if the previous one was eaten
 	matrix.setCell(10, 15, 'fruit');
 	snake.show();
-
 	//necessary to redo on eventListener
 	window.onkeydown = function(e) {
 		switch(e.keyCode) {
