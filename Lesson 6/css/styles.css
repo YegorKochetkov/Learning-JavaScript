@@ -7,3 +7,7 @@ article:not(:last-child) {
 	margin-bottom: 50px;
 }
 
+.back {
+	display: block;
+	padding-top: 15px;
+}

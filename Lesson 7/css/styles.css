@@ -7,3 +7,31 @@ article:not(:last-child) {
 	margin-bottom: 50px;
 }
 
+.back {
+	display: block;
+	padding-top: 15px;
+}
+
+.fields {
+	width: 400px;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	overflow: hidden;
+}
+
+.fields > div {
+	float: left;
+	height: 20px;
+	width: 20px;
+	box-sizing: border-box;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.fruit {
+	background-color: chartreuse;
+}
+
+.snake {
+	background-color: coral;
+}
