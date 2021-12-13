@@ -2,11 +2,12 @@ window.onload = function(e) {
 	let div = document.querySelector('.fields');
 	let matrix = new Matrix(div);
 	let snake = new Snake(matrix);
+	let fruit = new Fruit(matrix);
 	
 	matrix.create();
-	//necessary add random place and new appear if the previous one was eaten
-	matrix.setCell(10, 15, 'fruit');
+	fruit.show();
 	snake.show();
+
 	//necessary to redo on eventListener
 	window.onkeydown = function(e) {
 		switch(e.keyCode) {
@@ -25,7 +26,16 @@ window.onload = function(e) {
 		}
 	}
 
-	setInterval(() => {
+	let timer = setInterval(() => {
 		snake.move();
-	}, 400);
+		if(!fruit.isFruit) {
+			fruit.show();
+		}
+
+		if(!snake.alive) {
+			clearInterval(timer);
+			alert('Game over!');
+		}
+	}, 300);
+
 }

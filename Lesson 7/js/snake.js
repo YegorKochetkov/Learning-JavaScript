@@ -4,6 +4,7 @@ class Snake {
 		this.x = x;
 		this.y = y;
 		this.course = course;
+		this.alive = true;
 	}
 
 	show() {
@@ -11,7 +12,12 @@ class Snake {
 	}
 	
 	move() {
-		this.matrix.setCell(this.x, this.y, '');
+		if(!this.alive) {
+			return;
+		}
+
+		let lastX = this.x;
+		let lastY = this.y;
 		
 		switch(this.course) {
 			case 'right':
@@ -27,14 +33,23 @@ class Snake {
 				this.y++;
 				break;
 		}
-
-		//handle a collision of a snake with a wall
-		if(this.x > this.matrix.cols) this.x = 1;
-		if(this.x < 1) this.x = this.matrix.cols;
-		if(this.y > this.matrix.rows) this.y = 1;
-		if(this.y < 1) this.y = this.matrix.rows;
-		// console.log(this.y)
+		
+		if(!this._isAlive()) {
+			this.alive = false;
+			return;
+		};
+		
+		this.matrix.setCell(lastX, lastY, '');
 		this.matrix.setCell(this.x, this.y, 'snake');
-
 	}
+	
+	//handle a collision of a snake with a wall
+	_isAlive() {
+		return (this.x >= 1 && this.x <= this.matrix.cols &&
+				this.y >= 1 && this.y <= this.matrix.rows);
+		// if(this.x > this.matrix.cols) this.x = 1;
+		// if(this.x < 1) this.x = this.matrix.cols;
+		// if(this.y > this.matrix.rows) this.y = 1;
+		// if(this.y < 1) this.y = this.matrix.rows;
+		}
 }
