@@ -1,6 +1,6 @@
 window.onload = function(e) {
 	let div = document.querySelector('.fields');
-	let matrix = new Matrix(div);
+	let matrix = new Matrix(div, 10, 15);
 	let snake = new Snake(matrix);
 	let fruit = new Fruit(matrix);
 	

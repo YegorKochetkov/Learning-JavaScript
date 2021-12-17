@@ -5,11 +5,10 @@ class Fruit {
 	}
 
 	show() {
-		let x = Math.floor(Math.random() * (this.matrix.cols - 1 + 1)) + 1;
-		let y = Math.floor(Math.random() * (this.matrix.rows - 1 + 1)) + 1;
-
 		this._isFruit();
-		if(this.isFruit == false) {
+		if(!this.isFruit) {			
+			let x = Math.floor(Math.random() * (this.matrix.cols)) + 1;
+			let y = Math.floor(Math.random() * (this.matrix.rows)) + 1;
 			this.matrix.setCell(x, y,'fruit');
 		}
 		this.isFruit = false;
