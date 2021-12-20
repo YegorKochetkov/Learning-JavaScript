@@ -1,14 +1,10 @@
-class Snake {
-	constructor(matrix, x = 1, y = 1, course = 'right') {
-		this.matrix = matrix;
-		this.x = x;
-		this.y = y;
+class Snake extends Elem {
+	constructor(matrix, coordinates = [[3, 1], [2, 1], [1, 1]], course = 'right') {
+		super(matrix, coordinates);
+		this.value = 'snake';
 		this.course = course;
+		this.newCourse = course;
 		this.alive = true;
-	}
-
-	show() {
-		this.matrix.setCell(this.x, this.y, 'snake');
 	}
 	
 	move() {
@@ -16,37 +12,48 @@ class Snake {
 			return;
 		}
 
-		let lastX = this.x;
-		let lastY = this.y;
+		this.course = this.newCourse;
+		let head = this.coordinates[0].slice();
+		let lastX = head[0];
+		let lastY = head[1];
 		
 		switch(this.course) {
 			case 'right':
-				this.x++;
+				head[0]++;
 				break;
 			case 'left':
-				this.x--;
+				head[0]--;
 				break;
-			case 'top':
-				this.y--;
+			case 'up':
+				head[1]--;
 				break;
 			case 'down':
-				this.y++;
+				head[1]++;
 				break;
 		}
 		
-		if(!this._isAlive()) {
+		if(!this._isAlive(head)) {
 			this.alive = false;
 			return;
 		};
 		
-		this.matrix.setCell(lastX, lastY, '');
-		this.matrix.setCell(this.x, this.y, 'snake');
+		let find = this.matrix.getCell(head[0], head[1]);
+		if(find == 'snake') {
+			this.alive = false;
+			return;
+		}
+
+		let tail = this.coordinates.pop();
+		this.matrix.setCell(tail[0], tail[1], '');
+		this.coordinates.unshift(head);
+		this.matrix.setCell(head[0], head[1], 'snake');
 	}
 	
 	//handle a collision of a snake with a wall
-	_isAlive() {
-		return (this.x >= 1 && this.x <= this.matrix.cols &&
-				this.y >= 1 && this.y <= this.matrix.rows);
+	_isAlive(head) {
+		return (head[0] >= 1 && head[0] <= this.matrix.cols &&
+				head[1] >= 1 && head[1] <= this.matrix.rows);
+
 		// if(this.x > this.matrix.cols) this.x = 1;
 		// if(this.x < 1) this.x = this.matrix.cols;
 		// if(this.y > this.matrix.rows) this.y = 1;

@@ -5,31 +5,39 @@ window.onload = function(e) {
 	let fruit = new Fruit(matrix);
 	
 	matrix.create();
-	fruit.show();
+	fruit.showRandom();
 	snake.show();
 
 	//necessary to redo on eventListener
 	window.onkeydown = function(e) {
 		switch(e.keyCode) {
 			case 37:
-				snake.course = 'left';
+				if(snake.course != 'right') {
+					snake.newCourse = 'left';
+				}
 				break;
 			case 38:
-				snake.course = 'top';
+				if(snake.course != 'down') {
+					snake.newCourse = 'up';
+				}
 				break;
 			case 39:
-				snake.course = 'right';
+				if(snake.course != 'left') {
+					snake.newCourse = 'right';
+				}
 				break;
 			case 40:
-				snake.course = 'down';
+				if(snake.course != 'up') {
+					snake.newCourse = 'down';
+				}
 				break;
 		}
 	}
 
 	let timer = setInterval(() => {
 		snake.move();
-		if(!fruit.isFruit) {
-			fruit.show();
+		if(!fruit.isExist) {
+			fruit.showRandom();
 		}
 
 		if(!snake.alive) {
