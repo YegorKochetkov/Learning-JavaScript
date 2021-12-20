@@ -1,10 +1,11 @@
 class Snake extends Elem {
-	constructor(matrix, coordinates = [[3, 1], [2, 1], [1, 1]], course = 'right') {
+	constructor(matrix, coordinates = [[1, 1]], course = 'right') {
 		super(matrix, coordinates);
 		this.value = 'snake';
 		this.course = course;
 		this.newCourse = course;
 		this.alive = true;
+		this.eaten = false;
 	}
 	
 	move() {
@@ -12,6 +13,7 @@ class Snake extends Elem {
 			return;
 		}
 
+		this.eaten = false;
 		this.course = this.newCourse;
 		let head = this.coordinates[0].slice();
 		let lastX = head[0];
@@ -43,8 +45,13 @@ class Snake extends Elem {
 			return;
 		}
 
-		let tail = this.coordinates.pop();
-		this.matrix.setCell(tail[0], tail[1], '');
+		if(find == 'fruit') {
+			this.eaten = true;
+		} else {
+			let tail = this.coordinates.pop();
+			this.matrix.setCell(tail[0], tail[1], '');
+		}
+
 		this.coordinates.unshift(head);
 		this.matrix.setCell(head[0], head[1], 'snake');
 	}

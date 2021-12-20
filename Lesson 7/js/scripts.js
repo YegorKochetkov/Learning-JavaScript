@@ -1,8 +1,10 @@
 window.onload = function(e) {
 	let div = document.querySelector('.fields');
+	let scoreDiv = document.querySelector('.score');
 	let matrix = new Matrix(div, 10, 15);
 	let snake = new Snake(matrix);
 	let fruit = new Fruit(matrix);
+	let score = 0;
 	
 	matrix.create();
 	fruit.showRandom();
@@ -43,6 +45,13 @@ window.onload = function(e) {
 		if(!snake.alive) {
 			clearInterval(timer);
 			alert('Game over!');
+		}
+
+		if(snake.eaten) {
+			score++;
+			console.log(score)
+			console.log(scoreDiv)
+			scoreDiv.innerHTML = `<p class='score'>Score: ${score}</p>`;
 		}
 	}, 300);
 
