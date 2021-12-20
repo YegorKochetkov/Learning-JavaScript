@@ -1,7 +1,11 @@
 window.onload = function(e) {
+	let width = innerWidth;
+	let height = innerHeight; 
 	let div = document.querySelector('.fields');
 	let scoreDiv = document.querySelector('.score');
-	let matrix = new Matrix(div, 10, 15);
+	let matrixWidth = parseInt(width / 30);
+	let matrixHeight = parseInt(height / 50);
+	let matrix = new Matrix(div, matrixHeight, matrixWidth);
 	let snake = new Snake(matrix);
 	let fruit = new Fruit(matrix);
 	let score = 0;
