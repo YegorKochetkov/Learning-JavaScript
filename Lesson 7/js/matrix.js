@@ -9,12 +9,14 @@ class Matrix {
 	create() {
 		for (let i = 0; i < (this.rows * this.cols); i++) {
 			let div = document.createElement('div');
+
+			if(i % this.cols === 0) {
+				div.classList.add('row-start');
+			}
+			div.setAttribute('data-game', '');
 			this.elem.appendChild(div);
 			this.cells[i] = '';
 		}
-		//make sure that the field is proportional to 20px in css
-		//need to get rid of css
-		this.elem.style.width = this.cols * 20 + 'px';
 	}
 
 	getCell(x, y) {
@@ -25,7 +27,7 @@ class Matrix {
 	setCell(x, y, val) {
 		let num = this._calcNum(x, y);
 		this.cells[num] = val;
-		this.elem.children[num].className = val;
+		this.elem.children[num].setAttribute('data-game', val);
 	}
 
 	//calculate .cells number by coordinates

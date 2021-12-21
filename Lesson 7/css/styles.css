@@ -13,10 +13,10 @@ article:not(:last-child) {
 }
 
 .fields {
-	width: 400px;
 	border-top: 1px solid black;
 	border-left: 1px solid black;
-	overflow: hidden;
+	/* overflow: hidden; */
+	display: inline-block;
 }
 
 .fields > div {
@@ -28,10 +28,18 @@ article:not(:last-child) {
 	border-right: 1px solid black;
 }
 
-.fruit {
+.fields > div.row-start {
+	clear: both;
+}
+
+.fields > div[data-game='fruit'] {
 	background-color: chartreuse;
 }
 
-.snake {
+.fields > div[data-game='snake'] {
 	background-color: coral;
+}
+
+article input {
+	display: block;
 }
