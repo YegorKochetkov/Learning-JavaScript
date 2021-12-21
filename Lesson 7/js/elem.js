@@ -21,7 +21,7 @@ class Elem {
 			let x = Math.floor(Math.random() * (this.matrix.cols)) + 1;
 			let y = Math.floor(Math.random() * (this.matrix.rows)) + 1;
 			let find = this.matrix.getCell(x, y);
-			if(find == 'snake') {
+			if(find != '') {
 				return;
 			}
 			this.matrix.setCell(x, y, this.value);

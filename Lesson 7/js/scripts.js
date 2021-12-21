@@ -4,15 +4,23 @@ window.onload = function(e) {
 	let div = document.querySelector('.fields');
 	let scoreDiv = document.querySelector('.score');
 	let matrixWidth = parseInt(width / 30);
-	let matrixHeight = parseInt(height / 50);
-	let matrix = new Matrix(div, matrixHeight, matrixWidth);
-	let snake = new Snake(matrix);
-	let fruit = new Fruit(matrix);
+	let matrixHeight = parseInt(height / 40);
 	let score = 0;
 	
+	if(matrixWidth > 25) {
+		matrixWidth = 25;
+	}
+
+	if(matrixHeight > 25) {
+		matrixHeight = 25;
+	}
+
+	let matrix = new Matrix(div, matrixHeight, matrixWidth);
+	let snake = new Snake(matrix);
+	
 	matrix.create();
-	fruit.showRandom();
 	snake.show();
+	(new Fruit(matrix)).showRandom();
 
 	//necessary to redo on eventListener
 	window.onkeydown = function(e) {
@@ -42,9 +50,6 @@ window.onload = function(e) {
 
 	let timer = setInterval(() => {
 		snake.move();
-		if(!fruit.isExist) {
-			fruit.showRandom();
-		}
 
 		if(!snake.alive) {
 			clearInterval(timer);
@@ -53,9 +58,8 @@ window.onload = function(e) {
 
 		if(snake.eaten) {
 			score++;
-			console.log(score)
-			console.log(scoreDiv)
 			scoreDiv.innerHTML = `<p class='score'>Score: ${score}</p>`;
+			(new Fruit(matrix)).showRandom();
 		}
 	}, 300);
 
