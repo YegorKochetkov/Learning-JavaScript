@@ -7,4 +7,4 @@
 - Lesson 4. Getting to know with jQuery library.
 - Lesson 5. Own plugin for jQuery and add autoHeight to Owl Carousel.
 - Lesson 6. Getting various info from a user.
-- Lesson 7. Snake game. 
+- Lesson 7. [Snake game](https://yegorkochetkov.github.io/Learning-JavaScript/Lesson%207/index.html). 
